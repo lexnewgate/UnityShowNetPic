@@ -61,6 +61,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\DownloadTexture.cs" />
+    <Compile Include="Assets\Scripts\AsyncAwaitUtil\Source\Awaiters.cs" />
+    <Compile Include="Assets\Scripts\AsyncAwaitUtil\Source\AwaitExtensions.cs" />
+    <Compile Include="Assets\Scripts\AsyncAwaitUtil\Source\IEnumeratorAwaitExtensions.cs" />
+    <Compile Include="Assets\Scripts\AsyncAwaitUtil\Source\Internal\AsyncCoroutineRunner.cs" />
+    <Compile Include="Assets\Scripts\AsyncAwaitUtil\Source\Internal\SyncContextUtil.cs" />
+    <Compile Include="Assets\Scripts\AsyncAwaitUtil\Source\TaskExtensions.cs" />
+    <Compile Include="Assets\Scripts\AsyncAwaitUtil\Source\WaitForBackgroundThread.cs" />
+    <Compile Include="Assets\Scripts\AsyncAwaitUtil\Source\WaitForUpdate.cs" />
+    <Compile Include="Assets\Scripts\AsyncAwaitUtil\Tests\AsyncUtilTests.cs" />
+    <Compile Include="Assets\Scripts\AsyncAwaitUtil\Tests\Util\TestButtonHandler.cs" />
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>C:/Users/Administrator/Desktop/gitRepos/UnityShowNetPic/NetPicDemo/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
