@@ -12,17 +12,11 @@ public class DownloadTexture : MonoBehaviour
 
     public RawImage image1;
     public RawImage image2;
+    public Button btn1;
+    public Button btn2;
 
-    async void Load0()
-    {
+    public Image image;
 
-        UnityWebRequest www = UnityWebRequestTexture.GetTexture("https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1553619317321&di=f80e6005e936268893a407f3e61ba6fa&imgtype=0&src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fitem%2F201502%2F02%2F20150202223641_SirzA.thumb.700_0.jpeg");
-        var op=www.SendWebRequest();
-        www.Abort();
-        Debug.Log($"load0:{op.isDone}");
-
-       
-    }
 
     private UnityWebRequest www;
     async void Load1()
@@ -44,12 +38,20 @@ public class DownloadTexture : MonoBehaviour
 
     async  void Start()
     {
-        Load0();
-        Load1();
-        Load2();
-        www.Abort();
 
-                //if (www.isNetworkError || www.isHttpError)
+        www = UnityWebRequestTexture.GetTexture("https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1553619317321&di=f80e6005e936268893a407f3e61ba6fa&imgtype=0&src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fitem%2F201502%2F02%2F20150202223641_SirzA.thumb.700_0.jpeg");
+        await www.SendWebRequest();
+        var texture= ((DownloadHandlerTexture) www.downloadHandler).texture;
+        image.sprite = texture;
+
+
+        //btn.onClick.AddListener((() => Destroy(image2)));
+        //btn1.onClick.AddListener(Resources.UnloadUnusedAssets());
+
+
+
+
+        //if (www.isNetworkError || www.isHttpError)
         //{
         //    Debug.Log(www.error);
         //}
@@ -83,10 +85,10 @@ public class DownloadTexture : MonoBehaviour
     //}
 }
 
-public static class XAwaitExtensions
-{
-    public static TaskAwaiter GetAwaiter(this TimeSpan timespan)
-    {
-        return Task.Delay(timespan).GetAwaiter();
-    }
-}
+//public static class XAwaitExtensions
+//{
+//    public static TaskAwaiter GetAwaiter(this TimeSpan timespan)
+//    {
+//        return Task.Delay(timespan).GetAwaiter();
+//    }
+//}
